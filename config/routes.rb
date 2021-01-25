@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   
   namespace :company do
+    resources :style_settings
+  end
+  namespace :company do
     resources :frontpages
   end
   resources :companies do
