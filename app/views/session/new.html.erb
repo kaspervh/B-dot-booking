@@ -1,0 +1,10 @@
+<div class="content-container">
+  <section>
+    <h2>Log ind</h2>
+    <%= form_tag '/login' do %>
+      <%= text_field_tag :email, '', placeholder: 'Email', class: 'col-md-12'%>
+      <%= text_field_tag :password, '', placeholder: 'Kodeord', class: 'col-md-12' %>
+      <%= submit_tag 'Log ind', class: 'col-md-12' %>
+    <%end%>
+  </section>
+</div>

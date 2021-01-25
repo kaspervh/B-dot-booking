@@ -1,0 +1,47 @@
+<%= form_with(model: @user) do |form| %>
+ <br>
+ <br>
+  <section>
+    <div class="content-container">      
+      <h2 class="text-center">Virksomheds informationer</h2>
+      <%= form.text_field :company_cvr, placeholder: 'Firma cvr'%>     
+      <%= form.text_field :company_name, placeholder: 'Firma navn', readonly: true %>
+      <%= form.text_field :company_address, placeholder: 'Firma addresse', readonly: true%>
+      <%= form.text_field :company_post_number, placeholder: 'Postnummer', readonly: true%>
+      <%= form.text_field :company_city, placeholder: 'By', readonly: true%>
+      <h2 class="text-center">Bruger oplysninger</h2>
+      <%= form.text_field :email, placeholder: 'Email'%>
+      <%= form.password_field :password, placeholder: 'Kodeord' %>
+      <%= form.password_field :password, placeholder: 'Gentag kodeord'%>  
+      <br>    
+      <%= form.submit 'Opret Virksomhed og bruger'%>
+        
+    </div>
+    
+  </section>
+
+<%end%>
+
+<script>
+  const cvr = document.querySelector('#user_company_cvr');
+  const company_name = document.querySelector('#user_company_name');
+  const company_address = document.querySelector('#user_company_address');
+  const company_post_number = document.querySelector('#user_company_post_number');
+  const company_city = document.querySelector('#user_company_city');
+
+  let company_data = []
+
+  cvr.addEventListener('keyup', async () => {
+    console.log(cvr.value.length)
+    if(cvr.value.length === 8){
+      await fetch(`https://cvrapi.dk/api?country=dk&vat=${cvr.value}`).then(response => response.json()).then(data => {
+          console.log(data)
+          company_name.value = data.name;
+          company_address.value = data.address;
+          company_post_number.value = data.zipcode;
+          company_city.value = data.city;
+      })
+    }
+  });
+
+</script>

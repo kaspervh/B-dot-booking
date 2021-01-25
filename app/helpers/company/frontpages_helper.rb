@@ -1,0 +1,2 @@
+module Company::FrontpagesHelper
+end

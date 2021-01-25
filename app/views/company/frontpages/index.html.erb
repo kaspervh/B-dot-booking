@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Company Frontpages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @company_frontpages.each do |company_frontpage| %>
+      <tr>
+        <td><%= company_frontpage.company_id %></td>
+        <td><%= link_to 'Show', company_frontpage %></td>
+        <td><%= link_to 'Edit', edit_company_frontpage_path(company_frontpage) %></td>
+        <td><%= link_to 'Destroy', company_frontpage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company Frontpage', new_company_frontpage_path %>

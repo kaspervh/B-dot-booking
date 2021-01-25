@@ -1,0 +1,52 @@
+<div class="hamburger">
+  <input type="checkbox" id="nav-check">
+  <svg height="32px" id="Layer_1" style=" 0 0 32 32;" version="1.1" fill="#ffffff" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+  </svg>
+</div>
+<div class="navbar-vertical">
+  <div class="nav-header"><h5>B-dot</h5></div>
+  <%=link_to 'Hjem', root_path%>
+  <%=link_to 'om B-dot', about_path%>
+  <%=link_to 'Opret hjemmeside', signup_path%>
+  <%=link_to 'Log ind', login_path%>
+
+</div>
+<div class="navbar-horisontal">
+  <div class="nav-left">
+    <h3>B-dot</h3>
+  </div>
+  <div class="nav-right">
+    <%= link_to 'Hjem', root_path%>
+    <%= link_to 'Om B-dot', about_path%>
+    <%= link_to 'Opret hjemmeside', signup_path%>
+    <%= link_to 'log ind', login_path%>
+  </div>
+</div>
+
+
+<script>
+  const checkbox = document.querySelector('#nav-check');
+  const hamburger = document.querySelector('.hamburger');
+  const navbarVertical = document.querySelector('.navbar-vertical');
+  const navbarHorisontal = document.querySelector('.navbar-horisontal');
+  
+  // makes different navigation based on screen size
+  if(screen.width > 700){
+    hamburger.style.display = 'none';
+    navbarVertical.style.display = 'none';
+  }else{
+    navbarHorisontal.style.display = 'none';
+  }
+
+  // checks if 
+  
+  hamburger.addEventListener('click', function(){
+    checkbox.click();
+    if(checkbox.checked){
+      navbarVertical.style.right = '0';
+    }else{
+      navbarVertical.style.right = '-1000px';
+    }
+  });
+</script>

@@ -1,0 +1,99 @@
+.hamburger{
+  position: absolute;
+  z-index: 5;
+  right: 10px;
+  top: 10px;
+  
+
+  input{
+    display:none;
+  }
+}
+
+.navbar-vertical{
+  height: 100vh;
+  width: 50vw;
+  background-color: #333;
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  right: -1000px;
+  display: flex;
+  flex-direction: column;
+
+  .nav-header{
+    height: 60px;
+    width: 100%;
+    color: red;
+    border-bottom: 1px solid black;
+    
+
+    h5{
+      float: left;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      margin-left: 10px;
+      font-weight: bold;
+    }
+  }
+  
+  a{
+    font-size: 1.7em;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid black;
+
+    :hover{
+      color: white;
+    }
+    
+    :visited{color: white}
+  }
+  a:visited{color:white}
+}
+
+.navbar-horisontal{
+  width: 100vw;
+  height: 50px;
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  
+  .nav-left{
+    height:100%;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    color: red;
+    font-weight: bold;
+    padding-left: 30px;
+  }
+
+  .nav-right{
+    height: 100%;
+    width: 70vw;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding-right: 20px;
+
+    a{
+      height: 49px;
+      text-align: center;
+      font-size: 1.7em;
+      padding-left: 10px;
+      padding-right: 10px;
+      color: black;
+      text-decoration: none;
+
+    }
+    a:hover{
+      background-color: rgba(54, 25, 25, .00004);
+      border-bottom: 3px solid red;
+    }
+  }
+}

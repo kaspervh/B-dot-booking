@@ -1,0 +1,24 @@
+<div class="home-container">
+  <%= video_tag "massage-mobile.mp4", controls:false, autoplay:true, loop:true, muted:true, class: 'mobile-video'%>
+  <%= video_tag "massage-desktop.mp4", controls:false, autoplay:true, loop:true, muted:true, class: 'desktop-video'%>
+  <div class="welcome">
+    <h4 class="welcome-header">Velkommen til B-dot</h4>
+    <p class="welcome-text">Ejer du en lille virksomhed?, mangler den en hjemmeside?, har du ikke tilld eller evnerne til at bygge en hejmmeside selv?</p>
+    <p> Så opret en hemmeside med B-dot, hurtigt, nemt og billigt. Vi tilføjer løbende nye features til vores system uden merpris.</p>
+    <div class="button-container">
+      <%=link_to 'Om B-dot', '#', class: 'button-black' %>
+      <%=link_to 'Opret Hjemmeside', '#', class: 'button-red' %>
+    </div>
+  </div>
+</div>
+<footer class="home-footer">
+  <h4>Bdot A/S</h4>
+</footer>
+
+<script>
+  if(screen.width > 700 ){
+    document.querySelector('.mobile-video').style.display = 'none';
+  }else{
+    document.querySelector('.desktop-video').style.display = 'none';
+  }
+</script>
