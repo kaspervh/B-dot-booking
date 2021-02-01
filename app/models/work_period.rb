@@ -1,0 +1,2 @@
+class WorkPeriod < ApplicationRecord
+end

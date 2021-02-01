@@ -12,7 +12,11 @@
 
   <body>
     <div class="container">
-      <%=render 'shared/navbar/navbar_default'%>
+      <%if params[:company_id].present?%>
+        <%= render 'shared/navbar/company_navbar'%>
+      <%else%>
+        <%= render 'shared/navbar/navbar_default'%>
+      <%end%>
       <%= yield %>
     </div>
     

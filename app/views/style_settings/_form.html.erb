@@ -1,0 +1,38 @@
+<%= form_with(model: style_setting, url: [@company, @style_setting]) do |form| %>
+
+  <%= form.number_field :company_id, hidden: true %>
+ 
+  <div class="field">
+    <%= form.label 'Baggrunds farve' %>
+    <%= form.color_field :background_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Navigations farve' %>
+    <%= form.color_field :navbar_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Overskrift farve' %>
+    <%= form.color_field :header_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Tekst farve' %>
+    <%= form.color_field :text_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Primær knap farve' %>
+    <%= form.color_field :primary_button_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Sekundær knap farve' %>
+    <%= form.color_field :secondary_button_color %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Gem ændringer' %>
+  </div>
+<% end %>
