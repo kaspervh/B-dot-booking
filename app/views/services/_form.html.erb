@@ -1,0 +1,58 @@
+<%= form_with(model: service, url: [@company, @service]) do |form| %>
+
+  <%= form.number_field :company_id, value: @company.id, hidden: true %>
+
+  <div class="field">
+    <div id="image" style="max-width: 300px; max-height:400px; overflow: hidden;"></div>
+    <%= form.label "Promo billede" %>
+    <%= form.text_area :promo_image, hidden:true %>
+    <input type="file" id="promo-image">
+    
+  </div>
+
+  <div class="field">
+    <%= form.label "Overskrift" %>
+    <%= form.text_field :headline %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Beskrivelse" %>
+    <%= form.text_area :description, rows: 10, cols: 20  %>
+  </div>
+
+  <div class="field">
+    <%= form.label "pris" %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Varighed i minutter" %>
+    <%= form.text_field :duration %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script>
+  const promoImageFile = document.querySelector('#promo-image');
+  const promoImage = document.querySelector('#service_promo_image');
+
+  promoImageFile.addEventListener('change', async () => {
+    const file = await convertTobase64(promoImageFile.files[0])
+    promoImage.value = file;
+    const image = document.createElement('img')
+    image.setAttribute('src', file);
+    image.style.width = '100%';
+    document.querySelector('#image').appendChild(image)
+  })
+
+  const convertTobase64 = file => new Promise( (resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = () => reject()
+  } )
+
+</script>

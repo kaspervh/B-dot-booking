@@ -9,7 +9,7 @@ class SessionController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       if current_company.frontpage.present?
-        redirect_to company_frontpage_path(current_company)
+        redirect_to company_frontpage_path(current_company, current_company.frontpage)
       else
         redirect_to new_company_frontpage_path(current_company)
       end

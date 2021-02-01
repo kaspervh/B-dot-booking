@@ -1,0 +1,21 @@
+<%= form_with(model: work_period, url: [current_company, @work_period]) do |form| %>
+
+  <%= form.number_field :company_id, value: current_company.id, hidden: true %>
+  
+  <%= form.number_field :user_id, value: current_user.id, hidden: true %>
+
+
+  <div class="field">
+    <%= form.label 'Fra' %>
+    <%= form.datetime_select :start_time, {ampm:false, order: [:day, :month, :year]} %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'til' %>
+    <%= form.datetime_select :end_time, {ampm:false, order: [:day, :month, :year]} %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Gem åbnings tid'%>
+  </div>
+<% end %>

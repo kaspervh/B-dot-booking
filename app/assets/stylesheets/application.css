@@ -46,3 +46,18 @@ input{
 
 
 label{font-weight: bold;}
+
+table{width:100%;}
+
+th{
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
+
+td{
+  border:1px solid black;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

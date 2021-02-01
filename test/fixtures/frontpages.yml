@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 1
+  main_image: MyText
+  main_header: MyString
+  about_image: MyText
+  about_header: MyString
+  about_text: MyText
+
+two:
+  company_id: 1
+  main_image: MyText
+  main_header: MyString
+  about_image: MyText
+  about_header: MyString
+  about_text: MyText

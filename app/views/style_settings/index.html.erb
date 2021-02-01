@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Style Settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Background color</th>
+      <th>Navbar color</th>
+      <th>Header color</th>
+      <th>Text color</th>
+      <th>Primary button color</th>
+      <th>Secondary button color</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @style_settings.each do |style_setting| %>
+      <tr>
+        <td><%= style_setting.company_id %></td>
+        <td><%= style_setting.background_color %></td>
+        <td><%= style_setting.navbar_color %></td>
+        <td><%= style_setting.header_color %></td>
+        <td><%= style_setting.text_color %></td>
+        <td><%= style_setting.primary_button_color %></td>
+        <td><%= style_setting.secondary_button_color %></td>
+        <td><%= link_to 'Show', style_setting %></td>
+        <td><%= link_to 'Edit', edit_style_setting_path(style_setting) %></td>
+        <td><%= link_to 'Destroy', style_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Style Setting', new_style_setting_path %>
