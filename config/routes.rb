@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
   
+  
   resources :companies do
     resources :frontpages
     resources :style_settings
     resources :services
     resources :work_periods
     resources :appointments
+    get 'pages/services'
   end
 
   resources :users

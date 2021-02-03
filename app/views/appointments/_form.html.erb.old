@@ -2,7 +2,7 @@
   
   <div class="field">
     <%= form.label :work_period_id %>
-    <%= form.collection_select :work_period_id, @services, :id, :headline %>
+    <%= form.number_field :work_period_id %>
   </div>
 
   <div class="field">

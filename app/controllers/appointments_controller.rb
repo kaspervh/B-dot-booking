@@ -14,8 +14,9 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
-    @company = Company.find(parmas[:company_id])
+    @company = Company.find(params[:company_id])
     @appointment = Appointment.new
+    @services = @company.services
   end
 
   # POST /appointments

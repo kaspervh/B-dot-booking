@@ -1,0 +1,28 @@
+.pages-container{
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-container{
+  width: 100vw;
+  height: 400px;
+  display: flex;
+  .service-promo-image{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
+
+  .service-description-box{
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
