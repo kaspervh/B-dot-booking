@@ -1,0 +1,62 @@
+<div class="pages-container">
+  <div class="content-container">
+    <%= form_with(model: @appointment, url: company_pages_book_appointments_path(current_company)) do |form| %>
+    
+      <div class="field">
+        <%= form.label :work_period_id %>
+        <%= form.text_field :work_period_id %>
+      </div>
+
+      <div class="field">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :phone %>
+        <%= form.text_field :phone %>
+      </div>
+
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+      </div>
+
+      <div class="field">
+        <%= form.label :start_time %>
+        <%= form.text_field :start_time %>
+      </div>
+
+      <div class="field">
+        <%= form.label :end_time %>
+        <%= form.text_field :end_time %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+ 
+  <%= @work_periods%>
+  <section class="appointment_picker">
+    <%@work_periods.each do |wp|%>
+      <div class="work_period_container">
+        <div class="work_period_header">
+          <%= wp.start_time.to_date%>
+        </div>
+        <div class="available_times_container">
+          
+        </div>
+      </div>
+    
+    <% end %>
+    
+  </section>
+
+</div>

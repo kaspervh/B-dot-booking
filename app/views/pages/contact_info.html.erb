@@ -1,0 +1,32 @@
+<div class="content-container">
+  <h2>Bestil tid</h2>
+  <%= form_with(url: company_pages_contact_info_path(current_company)) do |form|%>
+    
+    <div class="field">
+      <%= form.label 'Vælg ydelse: ' %>
+      <%= form.collection_select :service_id, @services, :id, :headline %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Fornavn:' %>
+      <%= form.text_field :first_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Efternavn:' %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Tlf:' %>
+      <%= form.text_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'E-mail:' %>
+      <%= form.text_field :email %>
+    </div>
+
+    <%= form.submit "næste"%>
+  <%end%>
+</div>

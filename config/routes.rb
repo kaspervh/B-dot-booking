@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     resources :work_periods
     resources :appointments
     get 'pages/services'
+    get 'pages/contact_info'
+    post 'pages/contact_info'
+    get 'pages/pick_time'
+    post 'pages/book_appointments'
+    get 'pages/thank_you'
   end
 
   resources :users

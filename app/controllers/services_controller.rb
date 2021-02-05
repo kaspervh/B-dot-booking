@@ -4,7 +4,6 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @company = Company.find(params[:company_id])
     @services = Service.all
   end
 
@@ -15,23 +14,20 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
-    @company = Company.find(params[:company_id])
     @service = Service.new
   end
 
   # GET /services/1/edit
   def edit
-    @company = Company.find(params[:company_id])
   end
 
   # POST /services
   # POST /services.json
   def create
-    @company = Company.find(params[:company_id])
     @service = Service.new(service_params)
 
     if @service.save
-      redirect_to company_services_path(@company, @service)
+      redirect_to company_services_path(current_company, @service)
       
     else
       render :new

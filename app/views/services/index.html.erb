@@ -20,8 +20,8 @@
           <td><%="#{service.headline} #{service.price}"%></td>
           <td><%= service.description %></td>
           <td><%= service.duration %></td>
-          <td><%= link_to 'Rediger', edit_company_service_path(@company ,service), class: 'button' %></td>
-          <td><%= link_to 'Slet', [@company, service], method: :delete, data: { confirm: 'er du sikker på at du vil slette denne ydelse' }, class: 'button' %></td>
+          <td><%= link_to 'Rediger', edit_company_service_path(current_company ,service), class: 'button' %></td>
+          <td><%= link_to 'Slet', [current_company, service], method: :delete, data: { confirm: 'er du sikker på at du vil slette denne ydelse' }, class: 'button' %></td>
         </tr>
       <% end %>
     </tbody>

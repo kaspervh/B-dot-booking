@@ -83,13 +83,14 @@
 
     a{
       height: 49px;
-      text-align: center;
       font-size: 1.7em;
       padding-left: 10px;
       padding-right: 10px;
       color: black;
       text-decoration: none;
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     a:hover{
       background-color: rgba(54, 25, 25, .00004);

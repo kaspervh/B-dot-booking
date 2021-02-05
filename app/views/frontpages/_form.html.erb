@@ -37,7 +37,7 @@
 <div class="frontpage-form-container">
   <h1>Opret forside</h1>
 
-  <%= form_with(model: @frontpage, url: [@company, @frontpage], local: true ) do |form|%>
+  <%= form_with(model: @frontpage, url: [current_company, @frontpage], local: true ) do |form|%>
     
     <%= form.text_field :company_id, value: current_company.id, hidden: true %>
       <section>

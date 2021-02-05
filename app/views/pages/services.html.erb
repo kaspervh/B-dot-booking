@@ -7,14 +7,14 @@
         <div class="service-description-box">
           <h2><%="#{service.headline} #{service.price}"%></h2>
           <p><%= service.description%></p>
-          <%= link_to 'bestil tid', new_company_appointment_path(@company), class: 'button'%>
+          <%= link_to 'bestil tid', new_company_appointment_path(current_company), class: 'button'%>
         </div>
       <% else %>
         <%= image_tag service.promo_image, class: "service-promo-image"%>
         <div class="service-description-box">
           <h2><%="#{service.headline} #{service.price}"%></h2>
           <p><%= service.description%></p>
-          <%= link_to 'bestil tid', new_company_appointment_path(@company), class: 'button'%>
+          <%= link_to 'bestil tid', new_company_appointment_path(current_company), class: 'button'%>
           
         </div>  
       <% end %>
