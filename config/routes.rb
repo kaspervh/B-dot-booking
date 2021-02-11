@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'pages/contact_info'
     post 'pages/contact_info'
     get 'pages/pick_time'
-    post 'pages/book_appointments'
+    post 'pages/book_appointment'
     get 'pages/thank_you'
   end
 

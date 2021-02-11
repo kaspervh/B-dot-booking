@@ -1,62 +1,72 @@
 <div class="pages-container">
   <div class="content-container">
-    <%= form_with(model: @appointment, url: company_pages_book_appointments_path(current_company)) do |form| %>
+    <%= form_with(model: @appointment, url: company_pages_book_appointment_path(current_company)) do |form| %>
     
-      <div class="field">
-        <%= form.label :work_period_id %>
-        <%= form.text_field :work_period_id %>
-      </div>
+      <%= form.text_field :work_period_id, value: params[:work_period_id], hidden: true %>
 
-      <div class="field">
-        <%= form.label :first_name %>
-        <%= form.text_field :first_name %>
-      </div>
-
-      <div class="field">
-        <%= form.label :last_name %>
-        <%= form.text_field :last_name %>
-      </div>
-
-      <div class="field">
-        <%= form.label :phone %>
-        <%= form.text_field :phone %>
-      </div>
-
-      <div class="field">
-        <%= form.label :email %>
-        <%= form.text_field :email %>
-      </div>
-
-      <div class="field">
-        <%= form.label :start_time %>
-        <%= form.text_field :start_time %>
-      </div>
-
-      <div class="field">
-        <%= form.label :end_time %>
-        <%= form.text_field :end_time %>
-      </div>
-
+      <%= form.text_field :first_name, value: params[:first_name], hidden: true %>
+     
+      <%= form.text_field :last_name, value: params[:last_name], hidden: true %>
+     
+      <%= form.text_field :phone, value: params[:phone], hidden: true  %>
+     
+      <%= form.text_field :email, value: params[:email], hidden: true %>
+     
+      <%= form.text_field :start_time, hidden: true %>
+     
+      <%= form.text_field :end_time, hidden: true %>
+     
+      <section class="appointment_picker">
+        <%@work_periods.each do |wp|%>
+          <div class="work_period_container">
+            <div class="work_period_header">
+              <%= wp.start_time.to_date%>
+            </div>
+            <div class="available_times_container">
+             <% @available_times.each do |at|%>
+              <%if at[:work_period_id] == wp.id%>
+                <div class="available_time_button">
+                  <div class="start-time"><%=at[:start_time].to_s(:time)%></div>
+                  <div class="end-time"><%=at[:end_time].to_s(:time)%></div>
+                  <%= "#{at[:start_time].to_s(:time)} -  #{at[:end_time].to_s(:time)}"%>
+                </div>
+              <% end %>
+             <% end %>
+            </div>
+          </div>
+        
+        <% end %>
+        
+      </section>
+      <br>
       <div class="actions">
-        <%= form.submit %>
+        <%= form.submit 'Bestil Tid', class: 'button'%>
       </div>
     <% end %>
   </div>
  
-  <%= @work_periods%>
-  <section class="appointment_picker">
-    <%@work_periods.each do |wp|%>
-      <div class="work_period_container">
-        <div class="work_period_header">
-          <%= wp.start_time.to_date%>
-        </div>
-        <div class="available_times_container">
-          
-        </div>
-      </div>
-    
-    <% end %>
-    
-  </section>
+  
+  
 
 </div>
+
+<script>
+  buttons = document.querySelectorAll('.available_time_button');
+  startTime = document.querySelector('#start_time');
+  endTime = document.querySelector('#end_time');
+
+  for(let i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', e => {
+      const button = e.target;
+      const startTimeElement = button.querySelector('.start-time').innerHTML;
+      const endTimeElement = button.querySelector('.end-time').innerHTML;
+
+      startTime.value = startTimeElement
+      endTime.value = endTimeElement
+
+      
+    })
+  }
+
+  
+</script>
