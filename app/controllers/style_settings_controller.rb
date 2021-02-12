@@ -14,13 +14,11 @@ class StyleSettingsController < ApplicationController
 
   # GET /style_settings/new
   def new
-    @company = Company.find(params[:company_id])
     @style_setting = StyleSetting.new
   end
 
   # GET /style_settings/1/edit
   def edit
-    @company = Company.find(params[:company_id])
   end
 
   # POST /style_settings

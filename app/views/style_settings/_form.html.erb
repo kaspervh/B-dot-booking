@@ -1,4 +1,4 @@
-<%= form_with(model: style_setting, url: [@company, @style_setting]) do |form| %>
+<%= form_with(model: style_setting, url: [current_company, @style_setting]) do |form| %>
 
   <%= form.number_field :company_id, hidden: true %>
  

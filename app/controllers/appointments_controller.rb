@@ -14,14 +14,13 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/new
   def new
-    @company = Company.find(parmas[:company_id])
     @appointment = Appointment.new
+    @services = current_company.services
   end
 
   # POST /appointments
   # POST /appointments.json
   def create
-    @company = Comapny.find(params[:company_id])
     @appointment = Appointment.new(appointment_params)
 
     if @appointment.save

@@ -1,0 +1,75 @@
+<div class="pages-container">
+  <div class="content-container">
+    <%= form_with(model: @appointment, url: company_pages_book_appointment_path(current_company)) do |form| %>
+    
+      <%= form.text_field :work_period_id, hidden: true %>
+
+      <%= form.text_field :first_name, value: params[:first_name], hidden: true %>
+     
+      <%= form.text_field :last_name, value: params[:last_name], hidden: true %>
+     
+      <%= form.text_field :phone, value: params[:phone], hidden: true %>
+     
+      <%= form.text_field :email, value: params[:email], hidden: true %>
+     
+      <%= form.text_field :start_time, hidden: true %>
+     
+      <%= form.text_field :end_time, hidden: true %>
+     
+      <section class="appointment_picker">
+        <%@work_periods.each do |wp|%>
+          <div class="work_period_container">
+            <div class="work_period_header">
+              <%= wp.start_time.to_date%>
+            </div>
+            <div class="available_times_container">
+             <% @available_times.each do |at|%>
+              <%if at[:work_period_id] == wp.id%>
+                <div class="available_time_button">
+                  <div class="work-period-id"><%=at[:work_period_id]%></div>
+                  <div class="start-time"><%=at[:start_time].to_s(:time)%></div>
+                  <div class="end-time"><%=at[:end_time].to_s(:time)%></div>
+                  <%= "#{at[:start_time].to_s(:time)} -  #{at[:end_time].to_s(:time)}"%>
+                </div>
+              <% end %>
+             <% end %>
+            </div>
+          </div>
+        
+        <% end %>
+        
+      </section>
+      <br>
+      <div class="actions">
+        <%= form.submit 'Bestil Tid', class: 'button'%>
+      </div>
+    <% end %>
+  </div>
+ 
+  
+  
+
+</div>
+
+<script>
+  buttons = document.querySelectorAll('.available_time_button');
+  startTime = document.querySelector('#start_time');
+  endTime = document.querySelector('#end_time');
+  workPeriodId = document.querySelector('#work_period_id');
+
+  for(let i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', e => {
+      const button = e.target;
+      const startTimeElement = button.querySelector('.start-time').innerHTML;
+      const endTimeElement = button.querySelector('.end-time').innerHTML;
+      const workPeriodIdElement = button.querySelector('.work-period-id').innerHTML;
+
+      startTime.value = button.querySelector('.start-time').innerHTML;
+      endTime.value = button.querySelector('.end-time').innerHTML;
+      work_period_id.value = button.querySelector('.work-period-id').innerHTML;
+      
+    })
+  }
+
+  
+</script>

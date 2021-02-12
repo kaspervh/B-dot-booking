@@ -1,6 +1,6 @@
-<%= form_with(model: service, url: [@company, @service]) do |form| %>
+<%= form_with(model: service, url: [current_company, @service]) do |form| %>
 
-  <%= form.number_field :company_id, value: @company.id, hidden: true %>
+  <%= form.number_field :company_id, value: current_company.id, hidden: true %>
 
   <div class="field">
     <div id="image" style="max-width: 300px; max-height:400px; overflow: hidden;"></div>

@@ -1,8 +1,8 @@
-<%= form_with(model: appointment, url: [current_company, @appointment]) do |form| %>
+<%= form_with(model: appointment, url: [@company, @appointment]) do |form| %>
   
   <div class="field">
     <%= form.label :work_period_id %>
-    <%= form.collection_select :work_period_id, @services, :id, :headline %>
+    <%= form.number_field :work_period_id %>
   </div>
 
   <div class="field">

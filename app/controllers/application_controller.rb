@@ -11,14 +11,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user?
 
   def current_company
-    current_user.company
+    params[:company_id].present? ? Company.find(params[:company_id]) : nil
   end
   helper_method :current_company
 
-  def current_company?
-    current_company != nil
-  end
-  helper_method :current_company?
 
   def authorize
     redirect_to root_path unless current_user?
