@@ -23,7 +23,7 @@ class PagesController < ApplicationController
     if @appointment.save
       redirect_to company_pages_thank_you_path(current_company)
     else
-      redirect_to company_pages_pick_time_path(current_company)
+      redirect_to company_pages_pick_time_path(current_company, work_period_id: params[:work_period_id], first_name: params[:first_name], last_name: params[:last_name], phone: params[:phone], email: params[:email], start_time: params[:start_time], end_time: params[:end_time])
     end
   end
 
