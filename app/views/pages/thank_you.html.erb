@@ -1,0 +1,10 @@
+<div class="content-container">
+  <h1>Tak!</h1>
+  <h2>
+    Tak for at du har bestilt tid hos <%= current_company.name%> <br> 
+    du vil modtage en email bekreftelse 
+    på den bestilte tid.
+  </h2>
+
+  <%= link_to 'Til forsiden', company_frontpages_path(current_company), class: 'button', style: "background-color: #{current_company.style_setting.navbar_color};" %>
+</div>
